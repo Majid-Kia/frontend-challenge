@@ -17,6 +17,15 @@
   },
   "homepage": "https://github.com/sheypoor/frontend-challenge#readme",
   "dependencies": {
+    "knockout": "^3.5.1",
+    "knockout.validation": "^2.0.4",
     "sdk": "file:sdk"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "babelify": "^10.0.0",
+    "gulp": "^4.0.2",
+    "gulp-browserify": "^0.5.1",
+    "gulp-sass": "^4.1.0"
   }
 }

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <div class="form">
+    <div data-bind="if:!succeedRegister()">
+      <div class="form__steps">
+        <ul>
+          <li><span data-bind="css:{'active' : activeStep() === 1}">1</span></li>
+          <li><span data-bind="css:{'active' : activeStep() === 2}">2</span></li>
+        </ul>
+      </div>
+      <form data-bind="submit: submit">
+        <div class="form__step-one" data-bind="if:activeStep() === 1">
+          <div class="form__field form__field--input">
+            <label>
+              Name
+            </label>
+            <input
+            type="text" 
+            data-bind="textInput: name, valueUpdate:'keyup' "  required="required" >
+          </div>
+  
+          <div class="form__field form__field--input">
+            <label>
+              Age
+            </label>
+            <input
+            type="text" 
+            data-bind="value : age, valueUpdate:'keyup'" required="required" >
+          </div>
+          <div class="form__btns ">
+            <button 
+              data-bind="click : goToNextStep"
+              type="button">
+              Next
+            </button>
+          </div>  
+          
+        </div>
+        <div class="form__step-two"  data-bind="if:activeStep() === 2">
+          <div class="form__field form__field--input">
+            <label>
+              Email
+            </label>
+            <input type="text" data-bind="value : email, valueUpdate:'keyup'"  required="required" placeholder="email">
+          </div>
+  
+          <div class="form__field ">
+            <label>Newsletter:</label>
+            <select data-bind="value: newsletter, options: newsletterOptions, optionsCaption: 'Choose one...'"></select>
+          </div>
+  
+          <div class="form__btns form__btns--submit"> 
+            <button data-bind="click : goToPrevStep" type="button">Back</button>
+            <button type="submit">Send</button>
+          </div>
+          
+        </div>
+      </form>
+    </div>
+    <div data-bind="if:succeedRegister()">
+      <h3> Thanks for Registration </h3>
+    </div>
+  </div>
+  <script src="./js/main.js" defer></script>
+</body>
+</html>
